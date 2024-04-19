@@ -76,10 +76,120 @@
                 } else {
                     tasklis.classList.remove("ct");
                 }
-            
+           
                 
             });
-            
-            
+           
+                
+                
         } 
-        })
+        });
+            // const mode = document.querySelector("#mode");
+            // const elementstocheck = document.querySelectorAll('h2,p,div,input');
+            
+            // mode.addEventListener('click' ,()=>{
+                
+            //     const bodcol = window.getComputedStyle(document.body).backgroundColor;
+                
+
+            //     elementstocheck.forEach(element=>{
+                    
+            //         const computedstyle = window.getComputedStyle(element);
+            //         const color = computedstyle.color;
+            //         const bcolor = computedstyle.borderColor;
+                    
+            //         console.log("Element color:", bcolor); 
+                    
+            //         if (bcolor== 'rgb(255, 255, 255)') 
+            //         {
+            //         element.style.borderColor='black';}
+            //         else if (bcolor== 'rgb(0, 0, 0)')
+            //         {
+            //             element.style.borderColor='white';  
+            //         }
+            //         // else if(bcolor =='rgb(64, 9, 119)'){
+            //         //     element.style.borderColor='black';
+            //         // }
+                    
+
+            //         if(color == 'rgb(255, 255, 255)'){
+            //             element.style.color='rgb(0, 0, 0)';
+
+            //         }   
+            //         else if (color=='rgb(0, 0, 0)'){
+            //             element.style.color='rgb(255, 255, 255)'
+            //         }        
+            //         console.log(bodcol)
+                    
+                   
+                    
+            //     })
+            // //    const tasklistElement = document.querySelector(".tasklist");
+            // //     if (tasklistElement) {
+            // //         const tasklistcol = window.getComputedStyle(tasklistElement).color;
+            // //         if (tasklistcol === "rgb(255, 255, 255)") {
+            // //             // Change color of tasklist
+            // //             // For example:
+            // //             tasklistElement.style.color = 'black';
+            // //         }
+            // //     }
+
+            //     if (bodcol === 'rgb(224, 235, 201)') {
+            //         document.body.style.backgroundColor = 'black';
+                 
+            //     } else if (bodcol === 'rgb(0, 0, 0)') {
+            //         document.body.style.backgroundColor = 'rgb(224, 235, 201)';
+                   
+            //     }
+            // })
+// Add this section inside the event listener for mode click
+// Add this section inside the event listener for mode click
+const mode = document.querySelector("#mode");
+const elementstocheck = document.querySelectorAll('h2,p,div,input');
+
+
+mode.addEventListener('click', () => {
+    
+    const bodcol = window.getComputedStyle(document.body).backgroundColor;
+
+    elementstocheck.forEach(element => {
+        const computedstyle = window.getComputedStyle(element);
+        const color = computedstyle.color;
+        const bcolor = computedstyle.borderColor;
+
+        if (bcolor === 'rgb(255, 255, 255)') {
+            element.style.borderColor = 'black';
+        } else if (bcolor === 'rgb(0, 0, 0)') {
+            element.style.borderColor = 'white';
+        }
+
+        if (color === 'rgb(255, 255, 255)') {
+            element.style.color = 'rgb(0, 0, 0)';
+        } else if (color === 'rgb(0, 0, 0)') {
+            element.style.color = 'rgb(255, 255, 255)';
+        }
+    });
+
+    // Access tasklistElements and set its color
+    const tasklistElements = document.querySelectorAll(".tasklist");
+    tasklistElements.forEach(tasklistElement => {
+        if (bodcol === 'rgb(224, 235, 201)') {
+            tasklistElement.style.color = 'white';
+        } else if (bodcol === 'rgb(0, 0, 0)') {
+            tasklistElement.style.color = 'black';
+        }
+    });
+
+    // Toggle background color of the body
+    if (bodcol === 'rgb(0, 0, 0)') {
+        mode.textContent ="dark";
+        mode.style.color ="white";
+        mode.style.backgroundColor='black' 
+        document.body.style.backgroundColor = 'rgb(224, 235, 201)';
+    } else {
+        mode.textContent ="light";
+        mode.style.color ="black";
+        mode.style.backgroundColor='white' 
+        document.body.style.backgroundColor = 'black';
+    }
+});
